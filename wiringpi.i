@@ -87,6 +87,15 @@ require IO::Select;
 our $wiringPiMode;
 our @_children;
 
+END {
+
+    for (@_children) {
+        kill -9, $_;
+        waitpid($_, 0);
+    }
+
+}
+
 my @const = qw/
     INPUT
     OUTPUT
@@ -153,20 +162,7 @@ my @func = qw/
 # This is done in pure Perl but uses the same sysfs-based mechanism as the C
 # libs
 
-END {
-
-    for (@_children) {
-        kill -9, $_;
-        waitpid($_, 0);
-    }
-
-}
-
 sub wiringPiISR {
-
-    # WARNING!!!! Currently this function can only handle GPIO pin numbering.
-    # There are functions to convert between numbering schemes, but I can't
-    # yet figure out a way to determine the current numbering mode in effect
 
     my ($pin, $edge, $cb) = @_;
 
