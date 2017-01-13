@@ -3,7 +3,7 @@ echo "Updating submodule..."
 git submodule update --init
 
 echo "Generating bindings..."
-swig2.0 -perl wiringpi.i
+swig2.0 -perl -const wiringpi.i
 
 CORE=`perl -MConfig -e 'print $Config{archlib}'`/CORE
 WIRINGPI=WiringPi/wiringPi
