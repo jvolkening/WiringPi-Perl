@@ -2,11 +2,13 @@
 echo "Updating submodule..."
 git submodule update --init
 
+mkdir lib
+
 echo "Generating bindings..."
-swig2.0 -perl -const wiringpi.i
+swig -perl -const -outdir lib wiringpi.i
 
 CORE=`perl -MConfig -e 'print $Config{archlib}'`/CORE
-WIRINGPI=WiringPi/wiringPi
+WIRINGPI=wiringPi/wiringPi
 
 echo "Building against: $CORE"
 
@@ -18,10 +20,4 @@ $WIRINGPI/softPwm.c \
 $WIRINGPI/softTone.c \
 -D_GNU_SOURCE
 
-gcc -shared wiringPi.o \
-softPwm.o \
-softTone.o \
-wiringSerial.o \
-wiringShift.o \
-wiringpi_wrap.o \
--o wiringpi.so
+gcc -shared *.o -o lib/wiringpi.so

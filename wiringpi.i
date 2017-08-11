@@ -68,16 +68,16 @@ extern int  wiringPiSPIDataRW (int channel, uint8_t *data, int len) ;
 
 extern int piHiPri (int priority) ;
 
-extern int wpiPinToGpio (int wpiPin) ;
-extern int wpiPhysToGpio (int physPin) ;
+extern int wpiPinToGpio  (int wpiPin) ;
+extern int physPinToGpio (int physPin) ;
 
 %{
-#include "WiringPi/wiringPi/wiringPi.h"
-#include "WiringPi/wiringPi/wiringShift.h"
-#include "WiringPi/wiringPi/wiringSerial.h"
-#include "WiringPi/wiringPi/piHiPri.c"
-#include "WiringPi/wiringPi/softPwm.h"
-#include "WiringPi/wiringPi/wiringPiSPI.h"
+#include "wiringPi/wiringPi/wiringPi.h"
+#include "wiringPi/wiringPi/wiringShift.h"
+#include "wiringPi/wiringPi/wiringSerial.h"
+#include "wiringPi/wiringPi/piHiPri.c"
+#include "wiringPi/wiringPi/softPwm.h"
+#include "wiringPi/wiringPi/wiringPiSPI.h"
 %}
 
 %perlcode %{

@@ -24,6 +24,7 @@ my $builder = Module::Build->new(
         'wiringpi.pm',
         'wiringpi.so',
         'wiringpi_wrap.c',
+        'lib',
     ],
 );
 
