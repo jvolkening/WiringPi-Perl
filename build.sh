@@ -2,7 +2,7 @@
 echo "Updating submodule..."
 git submodule update --init
 
-mkdir lib
+mkdir -p lib
 
 echo "Generating bindings..."
 swig -perl -const -outdir lib wiringpi.i
@@ -16,6 +16,7 @@ gcc -fpic -c -Dbool=char -I$CORE wiringpi_wrap.c \
 $WIRINGPI/wiringSerial.c \
 $WIRINGPI/wiringShift.c \
 $WIRINGPI/wiringPi.c \
+$WIRINGPI/wiringPiSPI.c \
 $WIRINGPI/softPwm.c \
 $WIRINGPI/softTone.c \
 -D_GNU_SOURCE

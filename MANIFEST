@@ -2,5 +2,5 @@ Build.PL
 build.sh
 MANIFEST			This list of files
 README.md
-test.pl
 wiringpi.i
+t/wp.t
