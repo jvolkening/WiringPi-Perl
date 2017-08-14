@@ -69,6 +69,14 @@ extern void softPwmWrite  (int pin, int value) ;
 extern int  wiringPiSPISetup  (int channel, int speed) ;
 extern int  wiringPiSPIDataRW (int channel, uint8_t *data, int len) ;
 
+extern int wiringPiI2CSetup (int devId) ;
+extern int wiringPiI2CRead  (int fd) ;
+extern int wiringPiI2CWrite (int fd, int data) ;
+extern int wiringPiI2CWriteReg8  (int fd, int reg, int data) ;
+extern int wiringPiI2CWriteReg16 (int fd, int reg, int data) ;
+extern int wiringPiI2CReadReg8   (int fd, int reg) ;
+extern int wiringPiI2CReadReg16  (int fd, int reg) ;
+
 extern int piHiPri (int priority) ;
 
 extern int wpiPinToGpio  (int wpiPin) ;
@@ -81,6 +89,7 @@ extern int physPinToGpio (int physPin) ;
 #include "wiringPi/wiringPi/piHiPri.c"
 #include "wiringPi/wiringPi/softPwm.h"
 #include "wiringPi/wiringPi/wiringPiSPI.h"
+#include "wiringPi/wiringPi/wiringPiI2C.h"
 %}
 
 %perlcode %{
@@ -155,6 +164,13 @@ my @func = qw/
     wiringPiSPISetup
     wiringPiSPIDataRW
     wiringPiISR
+    wiringPiI2CSetup
+    wiringPiI2CRead
+    wiringPiI2CWrite
+    wiringPiI2CWriteReg8
+    wiringPiI2CWriteReg16
+    wiringPiI2CReadReg8
+    wiringPiI2CReadReg16
     piHiPri
 /;
 

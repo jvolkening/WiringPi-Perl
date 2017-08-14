@@ -12,6 +12,7 @@ $WIRINGPI/wiringSerial.c \
 $WIRINGPI/wiringShift.c \
 $WIRINGPI/wiringPi.c \
 $WIRINGPI/wiringPiSPI.c \
+$WIRINGPI/wiringPiI2C.c \
 $WIRINGPI/softPwm.c \
 $WIRINGPI/softTone.c \
 -D_GNU_SOURCE
