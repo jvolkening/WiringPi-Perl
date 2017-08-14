@@ -82,5 +82,7 @@
 \bwiringpi-[\d\.\_]+
 
 # Avoid submodules
-\bwiringPi/
 \blib/
+^WiringPi\.i$
+\bswig.sh$
+\.o$

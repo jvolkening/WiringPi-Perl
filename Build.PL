@@ -4,12 +4,12 @@ use warnings FATAL => 'all';
 use Module::Build;
 
 my $builder = Module::Build->new(
-    module_name         => 'wiringpi',
+    module_name         => 'WiringPi',
     license             => 'Artistic_2_0',
     dist_author         => q{Jeremy Volkening <jdv@base2bio.com>},
-    dist_version        => 0.001,
+    dist_version        => 0.002,
     release_status      => 'stable',
-    dist_abstract       => 'wiringpi',
+    dist_abstract       => 'WiringPi',
     configure_requires => {
         'Module::Build' => 0,
     },
@@ -19,16 +19,14 @@ my $builder = Module::Build->new(
     requires => {
     },
     add_to_cleanup     => [
-        'wiringpi-*',
+        'WiringPi-*',
         '*.o',
-        'wiringpi.pm',
-        'wiringpi.so',
-        'wiringpi_wrap.c',
-        'lib',
+        'lib/*.so',
+        'WiringPi.c',
     ],
 );
 
 my $ret = system('./build.sh');
-die "Error building SWIG bindings: $!\n" if ($ret);
+die "Error compiling bindings: $!\n" if ($ret);
 $builder->add_build_element('so');
 $builder->create_build_script();

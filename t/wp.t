@@ -6,9 +6,9 @@ use 5.012;
 
 use Test::More;
 
-use wiringpi qw/:all/;
+use WiringPi qw/:all/;
 
-require_ok( "wiringpi" );
+require_ok( "WiringPi" );
 
 ok( wiringPiSetup() != -1, "initialization" );
 

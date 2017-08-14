@@ -1,4 +1,4 @@
-%module wiringpi
+%module WiringPi
 
 %rename("wiringPiSetupPerl")     wiringPiSetup(void);
 %rename("wiringPiSetupGpioPerl") wiringPiSetupGpio(void);
@@ -172,9 +172,9 @@ sub wiringPiISR {
 
     my ($pin, $edge, $cb) = @_;
 
-    $pin = $wiringpi::wiringPiMode == WPI_MODE_PINS ? wpiPinToGpio($pin)
-         : $wiringpi::wiringPiMode == WPI_MODE_PHYS ? physPinToGpio($pin)
-         : $wiringpi::wiringPiMode == WPI_MODE_GPIO ? $pin
+    $pin = $WiringPi::wiringPiMode == WPI_MODE_PINS ? wpiPinToGpio($pin)
+         : $WiringPi::wiringPiMode == WPI_MODE_PHYS ? physPinToGpio($pin)
+         : $WiringPi::wiringPiMode == WPI_MODE_GPIO ? $pin
          : die "Failed to determine pin mode";
          
 
